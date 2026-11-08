@@ -242,7 +242,7 @@ python koreanwordcloudnlp.py -i input.txt -m 150 -o out.txt
 lualatex korwordcloud.tex
 ```
 
-템플릿 첫 줄의 `%!TEX program = ksRunCluttex`와 `%!KSRC --lualatex --max-iterations=2`는 `ksruncltex` 래퍼용 지시문입니다. 해당 래퍼를 쓰지 않는다면 무시해도 되며, 이때는 `lualatex` 또는 `latexmk -lualatex`로 직접 컴파일하세요.
+`lualatex` 또는 `latexmk -lualatex`로 컴파일하세요.
 
 ### 모양 바꾸기
 
