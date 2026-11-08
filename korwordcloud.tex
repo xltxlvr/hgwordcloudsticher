@@ -1,0 +1,38 @@
+\documentclass{standalone}
+
+\usepackage{kotex}
+\usepackage{ninecolors}
+\usepackage{wordcloud}
+\usepackage{singlepageempty}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand \cloudword { m m }
+{
+	\wordcloud[#1]{#2}
+}
+
+\NewDocumentCommand \mycmd { m o }
+{
+	\file_get:nnN { #1 } { } \contoffile
+
+	\IfValueTF { #2 }
+	{
+		\def\myopt{ #2 }
+	}
+	{
+    	\def\myopt{scale=2,
+%			rotate=45,
+			margin=0.5pt,
+		    usecolor,
+		    colors={red4, brown4, yellow4, olive4, green4, teal4, cyan4, azure4, blue4, violet4, magenta4, purple4, gray4}}
+	}
+	\exp_args:Nxx\cloudword{\myopt}{\contoffile}
+}
+
+\ExplSyntaxOff
+
+\begin{document}
+\sffamily\bfseries
+\mycmd{out.txt}
+\end{document}
